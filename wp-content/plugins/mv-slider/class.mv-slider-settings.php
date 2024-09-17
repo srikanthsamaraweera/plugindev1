@@ -66,43 +66,41 @@ if (!class_exists('MV_Slider_Settings')) {
         public function mv_slider_shortcode_callback()
         {
             ?>
-<span>Use the shortcode [mv_slider] to display the slider in any page/post/widget</span>
-<?php
+            <span>Use the shortcode [mv_slider] to display the slider in any page/post/widget</span>
+            <?php
         }
 
         public function mv_slider_title_callback()
         {
             ?>
-<input type="text" name="mv_slider_options[mv_slider_title]" id="mv_slider_title"
-    value="<?php echo isset(self::$options['mv_slider_title']) ? esc_attr(self::$options['mv_slider_title']) : '' ?>">
-<?php
+            <input type="text" name="mv_slider_options[mv_slider_title]" id="mv_slider_title"
+                value="<?php echo isset(self::$options['mv_slider_title']) ? esc_attr(self::$options['mv_slider_title']) : '' ?>">
+            <?php
         }
 
         public function mv_slider_bullets_callback()
         {
             ?>
-<input type="checkbox" name="mv_slider_options[mv_slider_bullets]" id="mv_slider_bullets" value="1" <?php 
-                if(isset(self::$options['mv_slider_bullets'])){
-                    checked("1",self::$options['mv_slider_bullets'],true);
-                }
-                ?> />
-<label for="mv_slider_bullets">Wheather to show bullets or not</label>
-<?php
+            <input type="checkbox" name="mv_slider_options[mv_slider_bullets]" id="mv_slider_bullets" value="1" <?php
+            if (isset(self::$options['mv_slider_bullets'])) {
+                checked("1", self::$options['mv_slider_bullets'], true);
+            }
+            ?> />
+            <label for="mv_slider_bullets">Wheather to show bullets or not</label>
+            <?php
         }
 
         public function mv_slider_style_callback()
         {
             ?>
-<select id="mv_slider_style" name="mv_slider_options[mv_slider_style]">
-    <option value="style-1"
-        <?php isset( self::$options['mv_slider_style'] ) ? selected( 'style-1', self::$options['mv_slider_style'], true ) : ''; ?>>
-        Style-1</option>
-    <option value="style-2"
-        <?php isset( self::$options['mv_slider_style'] ) ? selected( 'style-2', self::$options['mv_slider_style'], true ) : ''; ?>>
-        Style-2</option>
-</select>
+            <select id="mv_slider_style" name="mv_slider_options[mv_slider_style]">
+                <option value="style-1" <?php isset(self::$options['mv_slider_style']) ? selected('style-1', self::$options['mv_slider_style'], true) : ''; ?>>
+                    Style-1</option>
+                <option value="style-2" <?php isset(self::$options['mv_slider_style']) ? selected('style-2', self::$options['mv_slider_style'], true) : ''; ?>>
+                    Style-2</option>
+            </select>
 
-<?php
+            <?php
 
         }
 
