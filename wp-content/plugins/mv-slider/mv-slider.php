@@ -38,8 +38,11 @@ if (!class_exists('MV_Slider')) {
         {
             $this->define_constants();
             add_action('_admin_menu', [$this, 'add_mv_menu']);
-            require_once(MV_SLIDER_PATH . 'post-types/class.mv-slider-cpt.php');
+            require_once MV_SLIDER_PATH . 'post-types/class.mv-slider-cpt.php';
             $MV_Slider_Post_Type = new MV_Slider_Post_Type();
+
+            require_once MV_SLIDER_PATH . 'class.mv-slider-settings.php';
+            $MV_Slider_Settings = new Mv_Slider_Settings();
 
         }
 
@@ -70,7 +73,7 @@ if (!class_exists('MV_Slider')) {
 
         public function add_mv_menu()
         {
-            add_menu_page('Mv slider options', 'Mv slider options', 'manage_options', 'mvslider_options', [$this, 'mv_slider_options_page'], 'dashicons-images-alt');
+            add_menu_page('Mv slider options', 'Mv slider options', 'manage_options', 'mvslider_options', [$this, 'mv_settings_page'], 'dashicons-images-alt');
             add_submenu_page(
                 'mvslider_options',
                 'Manage Slides',
@@ -96,10 +99,19 @@ if (!class_exists('MV_Slider')) {
             );
         }
 
+        public function mv_settings_page()
+        {
+            require MV_SLIDER_PATH . 'views/settings-page.php';
+
+        }
+
+
         public function mv_slider_options_page()
         {
             echo 'This is the page for MV Slider admin panel';
         }
+
+
 
 
     }
